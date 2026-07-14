@@ -21,7 +21,8 @@ git clone <this-repo> ~/dotfiles && cd ~/dotfiles
 | `setup:rtk`   | Installs [rtk](https://github.com/rtk-ai/rtk) and runs `rtk init -g` (Claude Code hook) |
 | `setup:link`  | Symlinks everything under `home/` into `$HOME` |
 
-Enabled zsh plugins (in `home/.zshrc`): `z`, `zsh-autosuggestions`, `fzf`.
+Enabled zsh plugins (in `home/.zshrc`): `z`, `zsh-autosuggestions`, `fzf`,
+`zsh-syntax-highlighting`.
 `z` and the `fzf` plugin ship with oh-my-zsh; the `fzf` binary is a global mise
 tool so it's on `PATH` in every shell. `chsh` takes effect on next login — run
 `exec zsh` to switch immediately.

@@ -20,6 +20,14 @@ else
   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$autosuggest"
 fi
 
+syntax="$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+if [[ -d "$syntax" ]]; then
+  echo "= zsh-syntax-highlighting already installed"
+else
+  echo "+ installing zsh-syntax-highlighting"
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "$syntax"
+fi
+
 echo "+ installing fzf (global mise tool)"
 mise use -g fzf@latest
 
