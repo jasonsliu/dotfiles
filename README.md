@@ -11,19 +11,20 @@ git clone <this-repo> ~/dotfiles && cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` installs `mise` if missing, installs pinned tools (`mise install`),
-then runs `mise run setup`.
+`install.sh` installs `mise` if missing, then runs `mise run setup`.
 
 ## What `setup` does
 
 | Task | Does |
 |------|------|
-| `setup:shell` | Installs oh-my-zsh + the `zsh-autosuggestions` plugin |
+| `setup:shell` | Installs oh-my-zsh + `zsh-autosuggestions`, installs `fzf` globally (`mise use -g`), sets zsh as the default shell (`chsh`) |
 | `setup:rtk`   | Installs [rtk](https://github.com/rtk-ai/rtk) and runs `rtk init -g` (Claude Code hook) |
 | `setup:link`  | Symlinks everything under `home/` into `$HOME` |
 
 Enabled zsh plugins (in `home/.zshrc`): `z`, `zsh-autosuggestions`, `fzf`.
-`fzf` (binary) is installed via mise `[tools]`; `z` and `fzf` ship with oh-my-zsh.
+`z` and the `fzf` plugin ship with oh-my-zsh; the `fzf` binary is a global mise
+tool so it's on `PATH` in every shell. `chsh` takes effect on next login — run
+`exec zsh` to switch immediately.
 
 ## Layout
 

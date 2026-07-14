@@ -20,7 +20,6 @@ export PATH="$HOME/.local/bin:$PATH"
 mise --version
 
 mise trust .
-mise install
 
 if [[ "$dry_run" -eq 1 ]]; then
   mise run setup --dry-run

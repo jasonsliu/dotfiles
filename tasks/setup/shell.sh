@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Install oh-my-zsh and the zsh-autosuggestions plugin"
+#MISE description="Set up zsh: oh-my-zsh, plugins, fzf, default shell"
 set -euo pipefail
 
 OMZ="$HOME/.oh-my-zsh"
@@ -18,4 +18,15 @@ if [[ -d "$autosuggest" ]]; then
 else
   echo "+ installing zsh-autosuggestions"
   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$autosuggest"
+fi
+
+echo "+ installing fzf (global mise tool)"
+mise use -g fzf@latest
+
+zsh_bin="$(command -v zsh || echo /usr/bin/zsh)"
+if [[ "$(getent passwd "$(id -un)" | cut -d: -f7)" == "$zsh_bin" ]]; then
+  echo "= default shell already $zsh_bin"
+else
+  echo "+ setting default shell to $zsh_bin"
+  sudo chsh "$(id -un)" --shell "$zsh_bin"
 fi
