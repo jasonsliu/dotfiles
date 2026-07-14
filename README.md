@@ -50,12 +50,9 @@ cp ~/.config/nvim/init.lua home/.config/nvim/init.lua
 mise run setup:link
 ```
 
-By default the linker **skips** existing real files so nothing is clobbered. To
-replace one with the repo's version (a diff is shown first):
-
-```sh
-mise run setup:link -- --force
-```
+If a real file is already in the way (e.g. an image's default `~/.zshrc`), the
+linker moves it to `<file>.bak` and then symlinks — so your dotfiles always win
+on a fresh box, and the original is recoverable. Re-runs are idempotent.
 
 ## Handy
 
