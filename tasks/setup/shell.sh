@@ -28,6 +28,14 @@ else
   git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "$syntax"
 fi
 
+iterm="$HOME/.iterm2_shell_integration.zsh"
+if [[ -f "$iterm" ]]; then
+  echo "= iterm2 shell integration already installed"
+else
+  echo "+ installing iterm2 shell integration"
+  curl -fsSL https://iterm2.com/shell_integration/zsh -o "$iterm"
+fi
+
 echo "+ installing fzf (global mise tool)"
 mise use -g fzf@latest
 
